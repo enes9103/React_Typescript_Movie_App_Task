@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
 
 
 const firebaseConfig = {
@@ -48,4 +48,10 @@ export const createUser = async (email, password, displayName, navigate) => {
     } catch (err) {
       alert(err.message);
     }
+  };
+
+// Sign out users
+  export const logOut = () => {
+    signOut(auth);
+    alert("logged out successfully");
   };
