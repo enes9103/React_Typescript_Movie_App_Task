@@ -1,9 +1,12 @@
+import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { logOut } from '../auth/firebase';
+import { AuthContext } from "../context/AuthContext";
 
 
 const Navbar = () => {
-  const currentUser = false;                //usecontext oluşturulduktan sonra kaldırılacak
+  const { currentUser } = useContext(AuthContext);
+  // const currentUser = false;
   const navigate = useNavigate();
   return (
     <div>
