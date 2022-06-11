@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
 
 // In case the firebase config information is kept in the .env file;
 
@@ -65,3 +65,4 @@ export const createUser = async (email, password, displayName, navigate) => {
     signOut(auth);
     alert("logged out successfully");
   };
+
