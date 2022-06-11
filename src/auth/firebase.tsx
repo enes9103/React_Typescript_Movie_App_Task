@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile, onAuthStateChanged } from "firebase/auth";
 
 // In case the firebase config information is kept in the .env file;
 
@@ -66,3 +66,15 @@ export const createUser = async (email, password, displayName, navigate) => {
     alert("logged out successfully");
   };
 
+// Get the current user (observer)
+  export const userObserver = (setCurrentUser) => {
+    onAuthStateChanged(auth, (currentUser) => {
+      if (currentUser) {
+        // User is signed in.
+        setCurrentUser(currentUser);
+      } else {
+        // User is signed out
+        setCurrentUser(false);
+      }
+    });
+  };
