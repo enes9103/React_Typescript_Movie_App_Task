@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile, onAuthStateChanged } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile, onAuthStateChanged, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
 // In case the firebase config information is kept in the .env file;
 
@@ -77,4 +77,19 @@ export const createUser = async (email, password, displayName, navigate) => {
         setCurrentUser(false);
       }
     });
+  };
+
+// Google Auth Provider
+  export const signUpProvider = (navigate) => {
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        console.log(result);
+        navigate("/");
+      })
+      .catch((error) => {
+        // Handle Errors here.
+        console.log(error);
+        // ...
+      });
   };

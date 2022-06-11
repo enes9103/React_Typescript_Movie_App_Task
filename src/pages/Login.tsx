@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { signIn, signUpProvider } from "../auth/firebase";
 
@@ -12,9 +12,9 @@ const Login = () => {
     signIn(email, password, navigate);
     // console.log(email, password);
   };
-  // const handleProviderLogin = () => {
-  //   signUpProvider(navigate);
-  // };
+  const handleProviderLogin = () => {
+    signUpProvider(navigate);
+  };
   return (
     <div className="d-flex justify-content-center">
       <div className="form-image">
