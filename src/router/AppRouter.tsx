@@ -6,16 +6,21 @@ import {
 import Register from "../pages/Register";
 import Login from "../pages/Login";
 import Main from "../pages/Main";
+import Navbar from "../components/Navbar";
 
+// type RoutePats = {
+//     path: string,
+// }
 
 const AppRouter = () => {
   return (
     <Router>
-        <Routes>
-            <Route path="/" element={<Main />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-        </Routes>
+      <Navbar/>
+      <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+      </Routes>
     </Router>
   )
 }
