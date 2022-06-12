@@ -67,6 +67,23 @@ body {
   background-color: #7f0000;
 }
 
+.search {
+  width: 100%;
+  justify-content: center;
+  background-color: #bdbdbd;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.search-input {
+  height: 30px;
+  width: 300px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+}
+
 .navbar {
   padding: 1rem 3rem;
   background-color: #0d47a1 !important;
