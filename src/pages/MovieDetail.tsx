@@ -20,11 +20,49 @@ const MovieDetail = () => {
           .then((res) => setMovieDetails(res.data))
           .catch((err) => console.log(err));
       }, [movieDetailBaseUrl]);
-      
+
   return (
-    <div>
-      
-    </div>
+    <div className="container py-5">
+        <h1 className="text-center">{movieDetails?.title}</h1>
+        <div className="card mb-3">
+          <div className="row g-0">
+            <div className="col-md-4">
+              <img
+                src={
+                  movieDetails?.poster_path
+                    ? baseImageUrl + movieDetails?.poster_path
+                    : defaultImage
+                }
+                className="img-fluid rounded-start"
+                alt="..."
+              />
+            </div>
+            <div className="col-md-8 d-flex flex-column ">
+              <div className="card-body">
+                <h5 className="card-title">Overview</h5>
+                <p className="card-text">{movieDetails?.overview}</p>
+              </div>
+              <ul className="list-group ">
+                <li className="list-group-item">
+                  {"Release Date : " + movieDetails?.release_date}
+                </li>
+                <li className="list-group-item">
+                  {"Rate : " + movieDetails?.vote_average}
+                </li>
+                <li className="list-group-item">
+                  {"Total Vote : " + movieDetails?.vote_count}
+                </li>
+                <li className="list-group-item">
+            {/* Return link to the page we came from */}
+                  <Link to={-1} className="card-link">
+                    Go Back
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
   )
 }
 
