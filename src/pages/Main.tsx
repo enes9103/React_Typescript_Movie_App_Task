@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import MovieCard from "../components/MovieCard";
 
 const API_KEY = "eeed018179a4468a4d5a012819757c7d";
 // const API_KEY = process.env.REACT_APP_TMDB_KEY;
@@ -24,7 +25,11 @@ const Main = () => {
 
   return (
     <div>
-      Main Page
+      <div className="d-flex justify-content-center flex-wrap">
+        {movies.map((movie) => (
+          <MovieCard key={movie.id} {...movie} />
+        ))}
+      </div>
     </div>
   )
 }
