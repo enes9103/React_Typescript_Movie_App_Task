@@ -27,6 +27,7 @@ const Main = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+  // search if the user is logged in and the search term is not empty.
     if (searchTerm && currentUser) {
       getMovies(SEARCH_API + searchTerm);
     } else if (!currentUser) {
