@@ -35,6 +35,7 @@ const AppRouter = () => {
           <Route path="/list" element={<MovieList />} />
           <Route element={<PrivateRouter />}>
             <Route path="/details/:id" element={<MovieDetail />} />
+            <Route path="list/details/:id" element={<MovieDetail />} />
           </Route>
 
           {/* <Route
