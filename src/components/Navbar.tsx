@@ -2,18 +2,21 @@ import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { logOut } from '../auth/firebase';
 import { AuthContext } from "../context/AuthContext";
+import logo from '../assets/logo1.png';
 
 
 const Navbar = () => {
-  const { currentUser } = useContext(AuthContext);
-  // const currentUser = false;
+  const { currentUser } : any = useContext(AuthContext);
   const navigate = useNavigate();
   return (
     <div>
       <nav className="navbar navbar-expand-lg">
         <div className='container-fluid'>
         <Link to="/" className="navbar-brand text-white">
-          <h4 className="">Movie App</h4>
+          <img className="logo" src={logo} alt="" />
+        </Link>
+        <Link to="/" className="navbar-brand text-white">
+          <h4 className="">HOME</h4>
         </Link>
         {/* Conditions for the user to be a login register */}
         <div className="d-flex text-white align-items-center">

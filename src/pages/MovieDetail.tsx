@@ -34,14 +34,19 @@ const MovieDetail = () => {
                     : defaultImage
                 }
                 className="img-fluid rounded-start"
-                alt="..."
+                alt="Movie Poster"
               />
             </div>
             <div className="col-md-8 d-flex flex-column ">
               <div className="card-body">
                 <h5 className="card-title">Overview</h5>
                 <p className="card-text">{movieDetails?.overview}</p>
-              </div>
+                <div>
+                  <button className="btn btn-primary"><i className="bi bi-heart"></i></button>
+                  <button className="btn btn-primary"><i className="bi bi-share"></i></button>
+                  <button className="btn btn-primary"><i className="bi bi-pencil-square"></i></button>
+                </div>
+              </div> 
               <ul className="list-group ">
                 <li className="list-group-item">
                   {"Release Date : " + movieDetails?.release_date}
