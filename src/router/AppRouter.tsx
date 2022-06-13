@@ -12,6 +12,7 @@ import Main from "../pages/Main";
 import MovieDetail from "../pages/MovieDetail";
 import { AuthContext } from "../context/AuthContext";
 import { useContext } from "react";
+import MovieList from "../pages/MovieList";
 
 const AppRouter = () => {
   const { currentUser } = useContext(AuthContext);
@@ -31,6 +32,7 @@ const AppRouter = () => {
           <Route path="/" element={<Main />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/list" element={<MovieList />} />
           <Route element={<PrivateRouter />}>
             <Route path="/details/:id" element={<MovieDetail />} />
           </Route>
