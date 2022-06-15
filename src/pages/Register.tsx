@@ -9,10 +9,10 @@ const Register = () => {
   const [password, setPassword] = useState();
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e:any) => {
     const displayName = `${firstName} ${lastName}`;
     e.preventDefault();
-    createUser(email, password, displayName, navigate);
+    createUser(email as any, password, displayName, navigate);
   //   console.log(firstName, lastName);
   };
   return (
@@ -35,7 +35,7 @@ const Register = () => {
               className="form-control"
               id="first-name"
               placeholder="Enter your first name.."
-              onChange={(e) => setFirstName(e.target.value)}
+              onChange={(e:any) => setFirstName(e.target.value)}
               required
             />
           </div>
@@ -48,7 +48,7 @@ const Register = () => {
               className="form-control"
               id="last-name"
               placeholder="Enter your last name.."
-              onChange={(e) => setLastName(e.target.value)}
+              onChange={(e:any) => setLastName(e.target.value)}
               required
             />
           </div>
@@ -61,7 +61,7 @@ const Register = () => {
               className="form-control"
               id="email"
               placeholder="Enter your email adress.."
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e:any) => setEmail(e.target.value)}
               required
             />
           </div>
@@ -74,7 +74,7 @@ const Register = () => {
               className="form-control"
               id="password"
               placeholder="Enter your password.."
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e:any) => setPassword(e.target.value)}
               required
             />
           </div>

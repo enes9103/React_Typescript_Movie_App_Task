@@ -28,25 +28,25 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 // Sign up new users
-export const createUser = async (email, password, displayName, navigate) => {
+export const createUser = async (email:string, password:any, displayName:string, navigate:any) => {
     try {
       let userCredential = await createUserWithEmailAndPassword(
         auth,
         email,
         password
       );
-      await updateProfile(auth.currentUser, {
+      await updateProfile(auth.currentUser as any, {
         displayName: displayName,
       });
       navigate("/");
       console.log(userCredential);
-    } catch (err) {
+    } catch (err:any) {
       alert(err.message);
     }
   };
 
 // Sign in existing users
-  export const signIn = async (email, password, navigate) => {
+  export const signIn = async (email:string, password:any, navigate:any) => {
     try {
       let userCredential = await signInWithEmailAndPassword(
         auth,
@@ -55,7 +55,7 @@ export const createUser = async (email, password, displayName, navigate) => {
       );
       navigate("/");
       console.log(userCredential);
-    } catch (err) {
+    } catch (err:any) {
       alert(err.message);
     }
   };
@@ -67,7 +67,7 @@ export const createUser = async (email, password, displayName, navigate) => {
   };
 
 // Get the current user (observer)
-  export const userObserver = (setCurrentUser) => {
+  export const userObserver = (setCurrentUser:any) => {
     onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
         // User is signed in.
@@ -80,7 +80,7 @@ export const createUser = async (email, password, displayName, navigate) => {
   };
 
 // Google Auth Provider
-  export const signUpProvider = (navigate) => {
+  export const signUpProvider = (navigate:any) => {
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider)
       .then((result) => {
