@@ -40,9 +40,7 @@ const Main = () => {
 
   return (
     <div>
-      <div>
-      <marquee behavior="scroll" direction="left"> <button>VİZYONDAKİLER</button> Soldan sağa ekrandan çıktığında başa döner</marquee>
-      </div>
+      {/* SEARCH BAR */}
       <form className="search" onSubmit={handleSubmit}>
         <input
           type="search"
@@ -53,11 +51,55 @@ const Main = () => {
         />
         <button type="submit">Search</button>
       </form>
+      {/* SCROLL BAR */}
+      <div className="scrollingText">
+        <marquee behavior="scroll" direction="left" style={{marginTop:"10px"}} >
+          <button className="button">MOVİES AT VISION</button>
+          <div className="load-item">
+            <div className="line">
+              <i className="box1"></i>
+              <i className="box2"></i>
+              <i className="circle"></i>
+            </div>
+            <b className="departure">1.00 pm.</b>
+            <b className="arrival">8.15 pm.</b>
+            <div className="clearfix"></div>
+            <span className="price">THE LOST CİTY</span>
+            <span className="add-offer">15 USD <small>+TAX</small></span>
+          </div>
+          <div className="load-item">
+            <div className="line">
+              <i className="box1"></i>
+              <i className="box2"></i>
+              <i className="circle"></i>
+            </div>
+            <b className="departure">2.00 pm.</b>
+            <b className="arrival">7.15 pm.</b>
+            <div className="clearfix"></div>
+            <span className="price">THE NORTHMAN</span>
+            <span className="add-offer">15 USD <small>+TAX</small></span>
+          </div>
+          <div className="load-item">
+            <div className="line">
+              <i className="box1"></i>
+              <i className="box2"></i>
+              <i className="circle"></i>
+            </div>
+            <b className="departure">3.00 pm.</b>
+            <b className="arrival">6.15 pm.</b>
+            <div className="clearfix"></div>
+            <span className="price">JURASİC WORLD</span>
+            <span className="add-offer">15 USD <small>+TAX</small></span>
+          </div>
+        </marquee>
+      </div>
+      {/* MOVIE CARDS */}
       <div className="d-flex justify-content-center flex-wrap">
         { movies.slice(1,5).map((movie) => (
           <MovieCard key={movie.id} {...movie} />
         ))}
       </div>
+      {/* MORE BUTTON */}
       <Link to={ "/list" } state={{ movies: {movies} }} className="card-link d-flex justify-content-center">
         <button className="btn btn-primary  m-3"><i className="bi bi-chevron-double-right"></i> MORE RESULTS</button>  
       </Link>

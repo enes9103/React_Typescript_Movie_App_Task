@@ -2,11 +2,19 @@ import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 
+interface PropsItems {
+  title?:string;
+  poster_path?:any;
+  overview?:string;
+  vote_average?:number;
+  id:number;
+}
+
 const IMG_API = "https://image.tmdb.org/t/p/w1280";
 const defaultImage = "https://images.unsplash.com/photo-1581905764498-f1b60bae941a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80";
 
-const MovieCard = ({ title, poster_path, overview, vote_average, id }) => {
-  const { currentUser } = useContext(AuthContext);
+const MovieCard = ({ title, poster_path, overview, vote_average, id }:PropsItems) => {
+  const { currentUser }: any = useContext(AuthContext);
   let navigate = useNavigate();
 
   return (

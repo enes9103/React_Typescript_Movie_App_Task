@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { signIn, signUpProvider } from "../auth/firebase";
+import { signIn, signUpProvider } from "../helpers/AuthFirebase";
 
 const Login = () => {
   const [email, setEmail] = useState();

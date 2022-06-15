@@ -1,6 +1,6 @@
 import  { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { createUser } from "../auth/firebase";
+import { createUser } from "../helpers/AuthFirebase";
 
 const Register = () => {
   const [firstName, setFirstName] = useState();

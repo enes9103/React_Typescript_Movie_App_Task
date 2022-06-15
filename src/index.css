@@ -132,3 +132,128 @@ body {
   cursor: pointer;
 }
 
+/* SCROLLİNG BAR 135/258*/
+.scrollingText{
+  width: 85%;
+  margin: 0 auto;
+}
+
+.button {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  margin-top: -35px;
+  padding: 7px 29px;
+  border: 1px solid #257a8f;
+  border-radius: 12px;
+  background: #3cc6e9;
+  background: -webkit-gradient(linear, left top, left bottom, from(#3cc6e9), to(#257a8f));
+  background: -moz-linear-gradient(top, #3cc6e9, #257a8f);
+  background: linear-gradient(to bottom, #3cc6e9, #257a8f);
+  -webkit-box-shadow: #37b6d7 0px 0px 9px 0px;
+  -moz-box-shadow: #37b6d7 0px 0px 9px 0px;
+  box-shadow: #37b6d7 0px 0px 9px 0px;
+  text-shadow: #174c5a 0px 0px 1px;
+  font: normal normal bold 20px arial;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.button:before{
+  content:  "\0000a0";
+  display: inline-block;
+  height: 24px;
+  width: 24px;
+  line-height: 24px;
+  margin: 0 4px -6px -4px;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABAUlEQVRIie3VsUoDQRSF4Y+QImwploLgM0iwsLKwDPY+kFj4FD6A+Cwi1hIhXboElyXE5kYmcTbZdVUEPTAsc87l/sOdXZZ/tdAIEyw7rgkuNpv3MY6CKp4LzGKVDb1ZeGP0UkCRFJwHpMJZZKexX2S8tG4/6VPUAQpcxUkek8Jt3hMGmT61gEE0WuI6qXnY4TUGwEkygmF4w9iXkad1ZYxqK6DrG7Ra74C+j5pnvDZaO/kmYI7DDpACz3VBdnZJfo/jBoDGl5zLK9zi6LsA6SXeYG8XoOeH9CtGdOcTl5z7DnIAuNyRZ7MV4BVTHKh5j1uowEv0XNNX/nBGHQ/5l/QG8rGiIGqFoDMAAAAASUVORK5CYII=") no-repeat left center transparent;
+  background-size: 100% 100%;
+}
+
+.load-item{
+  display: inline-block;
+  font-size: 12px;
+  padding: 4px 12px;
+  box-sizing: border-box;
+  color: #001554;
+  position: relative;
+  margin-left: 20px;
+}
+
+.load-item .line{
+  display: block;
+  position: absolute;
+  top: 12px;
+  left: 88px;
+  height: 4px;
+  background-color: #0fbce7;
+}
+
+.load-item .line .box1{
+  width: 6px;
+  height: 4px;
+  background-color: #0fbce7;
+  position: absolute;
+  top: 0px;
+  left: -5px;
+}
+
+.load-item .line .box2{
+  width: 6px;
+  height: 4px;
+  background-color: #0fbce7;
+  position: absolute;
+  top: 0px;
+  left: -15px;
+}
+
+.load-item .line .circle{
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: #062f6d;
+  position: absolute;
+  top: -3px;
+  right: -12px;
+}
+
+.load-item b.departure{
+  float: left;
+}
+
+.load-item b.arrival{
+  float: right;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+.load-item .price{
+  float: left;
+  background-color: #001554;
+  color: #fff;
+  font-weight: bold;
+  font-size: 10px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  margin-top: 4px;
+}
+
+.load-item .add-offer{
+  float: right;
+  background-color: #0fbce7;
+  color: #fff;
+  font-weight: bold;
+  font-size: 10px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  margin-top: 4px;
+  margin-left: 2px;
+  text-decoration: none;
+}
