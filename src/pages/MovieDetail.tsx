@@ -2,12 +2,12 @@ import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
-import { addNewBlog, useData } from "../helpers/DataBaseFirebase";
+import { addNewBlog } from "../helpers/DataBaseFirebase";
 
 const initialValues = {
   comment: "",
   user: "",
-  id: "",
+  movieId: "",
 };
 
 const MovieDetail = () => {
@@ -17,10 +17,10 @@ const MovieDetail = () => {
   const [showShare, setShowShare] = useState(false);
   const [commentForm, setCommentForm] = useState(initialValues);
   const [shareForm, setShareForm] = useState({ email: "" });
-  const { currentUser } = useContext(AuthContext);
-  const { commentData } = useData();
+  const { currentUser, commentData } = useContext(AuthContext);
+  const [comment, setComment] = useState();
 
-  const commentList = commentData?.filter((comment) => comment.id === id);
+  const commentList = commentData?.filter((comment) => comment.movieId === id);
 
   // const API_KEY = process.env.REACT_APP_TMDB_KEY;
   const API_KEY = "eeed018179a4468a4d5a012819757c7d";
@@ -30,9 +30,6 @@ const MovieDetail = () => {
   const defaultImage =
     "https://images.unsplash.com/photo-1581905764498-f1b60bae941a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80";
 
-  const user = "user";
-  const pk = "id";
-
   useEffect(() => {
     axios
       .get(movieDetailBaseUrl)
@@ -40,26 +37,28 @@ const MovieDetail = () => {
       .catch((err) => console.log(err));
   }, [movieDetailBaseUrl]);
 
+  //COMMENT FUNC.
   const handleChange = (e) => {
     e.preventDefault();
-    const { name, value } = e.target;
+    const { value } = e.target;
+    setComment(value);
     setCommentForm({
-      ...commentForm,
-      [name]: value,
-      [user]: currentUser.displayName,
-      [pk]: id,
+      comment: value,
+      user: currentUser.displayName,
+      movieId: id,
     });
-    console.log(commentForm);
-  };
-
-  const handleChangeShare = (e) => {
-    setShareForm({ ...shareForm, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     addNewBlog(commentForm);
     setCommentForm(initialValues);
+  };
+
+  //SHARE FUNC.
+  const handleSubmitShare = (e) => {
+    e.preventDefault();
+    setShareForm({ ...shareForm, [e.target.email]: e.target.value });
   };
 
   return (
@@ -102,6 +101,7 @@ const MovieDetail = () => {
               </div>
               {/* ADVİCE FORM */}
               <form
+                onSubmit={handleSubmitShare}
                 style={{
                   display: showShare ? "block" : "none",
                   marginRight: "1rem",
@@ -110,13 +110,14 @@ const MovieDetail = () => {
                 <input
                   type="email"
                   className="form-control"
+                  // value={shareForm.email}
                   id="exampleFormControlInput1"
                   name="email"
-                  value={shareForm.email}
-                  onChange={handleChangeShare}
                   placeholder="example@example.com"
                 />
-                <button className="btn btn-primary">Advice</button>
+                <button className="btn btn-primary" type="submit">
+                  Advice
+                </button>
               </form>
               {/* COMMENT FORM */}
               <form
@@ -129,7 +130,6 @@ const MovieDetail = () => {
               >
                 <label
                   htmlFor="exampleFormControlTextarea1"
-                  value={commentForm.title}
                   className="form-label"
                   style={{ marginTop: "1rem", marginBottom: "-30px" }}
                 >
@@ -137,7 +137,7 @@ const MovieDetail = () => {
                 </label>
                 <input
                   type="text"
-                  name="name"
+                  name="title"
                   className="form-control"
                   id="exampleFormControlInput1"
                   placeholder="Name Surname"
@@ -145,7 +145,7 @@ const MovieDetail = () => {
                 <textarea
                   className="form-control"
                   name="comment"
-                  value={commentForm.comment}
+                  value={comment}
                   onChange={handleChange}
                   id="exampleFormControlTextarea1"
                   rows="3"
@@ -157,11 +157,7 @@ const MovieDetail = () => {
               </form>
             </div>
             {/* COMMENT ACCORDİON */}
-            {/* <div>
-          {commentList.map(comment => <p>{comment} </p>)}
-          </div> */}
             <div className="accordion" id="accordionExample">
-            {commentList.map(comment => (
               <div className="accordion-item">
                 <h2 className="accordion-header" id="headingOne">
                   <button
@@ -170,8 +166,9 @@ const MovieDetail = () => {
                     data-bs-toggle="collapse"
                     data-bs-target="#collapseOne"
                     aria-expanded="true"
-                    aria-controls="collapseOne" >
-                    See Comments
+                    aria-controls="collapseOne"
+                  >
+                    See Comments #1
                   </button>
                 </h2>
                 <div
@@ -179,15 +176,16 @@ const MovieDetail = () => {
                   className="accordion-collapse collapse show"
                   aria-labelledby="headingOne"
                   data-bs-parent="#accordionExample" >
-                  <div className="accordion-body">
-                    <strong>{comment.user}</strong> <br />
-                    {comment.comment}
-                  </div>
+                  {commentList.map((comment) => (
+                    <div className="accordion-body">
+                      <strong>{comment.user}</strong>
+                      <br />
+                      {comment.comment}
+                    </div>
+                  ))}
                 </div>
               </div>
-              ))}
             </div>
-
 
             <ul className="list-group ">
               <li className="list-group-item">

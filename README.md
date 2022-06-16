@@ -12,6 +12,8 @@ Movie Application is an application where users can search and review the detail
 - He can continue to review the movies he has listed by going back from the detail page.
 - The application can work responsively on mobile and desktop platforms.
 
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ## Project Outcome
 ![Project gif](Animation.gif)
 
@@ -55,6 +57,7 @@ SOLUTION
 ├── tsconfig.json
 └──.env
 ```
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -69,7 +72,6 @@ This is an example of how to list things you need to use the software and how to
   ```sh
   npm install npm@latest -g
   ```
-<p align="right">(<a href="#top">back to top</a>)</p>
 
 ### Installation
 
@@ -128,9 +130,13 @@ Then create a new Realtime Database of the application. [https://firebase.google
 
 - 6: The application has been shared on Github. During the project preparation, the development stages were committed and pushed to the repo.
 
-- 7: After the project was completed, gif and detailed README.md file were added.
+- 7: Cypress testing framework was used for application testing.
 
-- 8: The project was finally deployed using the Netlify service.
+- 8: After the project was completed, gif and detailed README.md file were added.
+
+- 9: The npm package manager was used during application development. Webpack was used for pre-deploy packaging.
+
+- 10: The project was finally deployed using the Netlify service.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 

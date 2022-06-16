@@ -12,13 +12,14 @@ export const addNewBlog = (info) => {
         set((newBlogRef), {
             user: info.user,
             comment: info.comment,
-            id: info.id
+            movieId: info.movieId
         })
     }
 }
 
-export const useData = () => {
-    const [commentData, setCommentData] = useState([]);
+export const useData = (setCommentData) => {
+    // const commentData = []
+    // const [commentData, setCommentData] = useState([]);
     const db = getDatabase();
     const userRef = ref(db, "movie");
     onValue(userRef, (snapshot) => {
@@ -28,6 +29,7 @@ export const useData = () => {
             commentArray.push({ id, ...data[id] })
         }
         setCommentData(commentArray);
+
     });
 }
 
