@@ -7,9 +7,9 @@ const Login = () => {
   const [password, setPassword] = useState();
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e:any) => {
     e.preventDefault();
-    signIn(email, password, navigate);
+    signIn(email as any, password, navigate);
     // console.log(email, password);
   };
   const handleProviderLogin = () => {
@@ -33,7 +33,7 @@ const Login = () => {
               className="form-control"
               id="email"
               placeholder="Enter your email adress.."
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => setEmail(e.target.value as any)}
               required
             />
           </div>
@@ -46,7 +46,7 @@ const Login = () => {
               className="form-control"
               id="password"
               placeholder="Enter your password.."
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => setPassword(e.target.value as any)}
               required
             />
           </div>

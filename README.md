@@ -110,6 +110,8 @@ Then create a new Realtime Database of the application. [https://firebase.google
     Runs the app in the development mode.\
     Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
+7. A test user has been created to log in. You can use `username : johndoe@test.com`, `password : johndoe`. Or you can create a new user Registration or log in with your google account.
+
     ### Don't  forget!!!
     You must log in to search for movies, view details and comment. You can also log in with your Google account.
 

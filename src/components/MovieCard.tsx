@@ -33,7 +33,7 @@ const MovieCard = ({ title, poster_path, overview, vote_average, id }:PropsItems
         {currentUser && (
           <span
             className={`tag ${
-              vote_average >= 8 ? "green" : vote_average >= 6 ? "orange" : "red"
+              vote_average as any >= 8 ? "green" : vote_average as any >= 6 ? "orange" : "red"
             }`}>
             {vote_average}
           </span>

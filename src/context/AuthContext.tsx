@@ -4,7 +4,7 @@ import {useData} from "../helpers/DataBaseFirebase";
 
 export const AuthContext = createContext();
 
-const AuthContextProvider = ({ children }) => {
+const AuthContextProvider = ({ children }:any) => {
   const [currentUser, setCurrentUser] = useState();
   const [commentData, setCommentData] = useState();
 

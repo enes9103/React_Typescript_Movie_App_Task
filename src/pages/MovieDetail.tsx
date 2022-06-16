@@ -21,9 +21,9 @@ const MovieDetail = () => {
   const [comment, setComment] = useState();
   const [shareForm, setShareForm] = useState({ email: "" });
   //CONTEXT
-  const { currentUser, commentData } = useContext(AuthContext);
+  const { currentUser, commentData }:any = useContext(AuthContext);
   //COMMENT DATA FİLTER
-  const commentList = commentData?.filter((comment) => comment.movieId === id);
+  const commentList = commentData?.filter((comment:any) => comment.movieId === id);
 
   // const API_KEY = process.env.REACT_APP_TMDB_KEY;
   const API_KEY = "eeed018179a4468a4d5a012819757c7d";
@@ -40,7 +40,7 @@ const MovieDetail = () => {
   }, [movieDetailBaseUrl]);
 
   //COMMENT FUNC.
-  const handleChange = (e) => {
+  const handleChange = (e:any) => {
     e.preventDefault();
     const { value } = e.target;
     setComment(value);
@@ -51,14 +51,14 @@ const MovieDetail = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e:any) => {
     e.preventDefault();
     addNewBlog(commentForm);
     setCommentForm(initialValues);
   };
 
   //SHARE FUNC.
-  const handleSubmitShare = (e) => {
+  const handleSubmitShare = (e:any) => {
     e.preventDefault();
     setShareForm({ ...shareForm, [e.target.email]: e.target.value });
     alert(`Recommended to e-mail address.`);
@@ -151,7 +151,6 @@ const MovieDetail = () => {
                   value={comment}
                   onChange={handleChange}
                   id="exampleFormControlTextarea1"
-                  rows="3"
                   placeholder="Write a Comment"
                 ></textarea>
                 <button className="btn btn-primary" type="submit">
@@ -172,7 +171,7 @@ const MovieDetail = () => {
               </button>
             </p>
             <div className="collapse" id="collapseExample">
-              {commentList.map((comment, index) => (
+              {commentList.map((comment:any, index:number) => (
                 <div key={index} className="card card-body">
                   <strong>{comment.user}</strong>
                   {comment.comment}

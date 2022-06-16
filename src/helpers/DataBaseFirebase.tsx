@@ -1,10 +1,9 @@
 import {app} from "./AuthFirebase";
-import { getDatabase, ref, set, push, onValue, remove, update } from "firebase/database";
-import { useState, useEffect  } from 'react';
+import { getDatabase, ref, set, push, onValue } from "firebase/database";
 
 const database = getDatabase(app);
 
-export const addNewBlog = (info) => {
+export const addNewBlog = (info:any) => {
     const db = getDatabase();
     const blogDatas = ref(db, "movie");
     const newBlogRef = push(blogDatas);
@@ -17,7 +16,7 @@ export const addNewBlog = (info) => {
     }
 }
 
-export const useData = (setCommentData) => {
+export const useData = (setCommentData:any) => {
     const db = getDatabase();
     const userRef = ref(db, "movie");
     onValue(userRef, (snapshot) => {
