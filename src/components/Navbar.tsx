@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { logOut } from '../helpers/AuthFirebase';
 import { AuthContext } from "../context/AuthContext";
-import logo from '../assets/logo1.png';
+import logo from '../assets/logo.png';
 
 const Navbar = () => {
   const { currentUser } : any = useContext(AuthContext);
