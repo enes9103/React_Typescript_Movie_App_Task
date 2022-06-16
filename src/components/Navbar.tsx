@@ -4,7 +4,6 @@ import { logOut } from '../helpers/AuthFirebase';
 import { AuthContext } from "../context/AuthContext";
 import logo from '../assets/logo1.png';
 
-
 const Navbar = () => {
   const { currentUser } : any = useContext(AuthContext);
   const navigate = useNavigate();

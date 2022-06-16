@@ -13,8 +13,8 @@ const Register = () => {
     const displayName = `${firstName} ${lastName}`;
     e.preventDefault();
     createUser(email as any, password, displayName, navigate);
-  //   console.log(firstName, lastName);
   };
+  
   return (
     <div className="d-flex justify-content-center">
       {/* {window.innerWidth > 700 && ( */}

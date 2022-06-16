@@ -257,3 +257,12 @@ body {
   margin-left: 2px;
   text-decoration: none;
 }
+
+/* ACCORDİON */
+.accordion-button{
+  background-color: #E7F1FF;
+}
+
+.card-body{
+  padding: 0.2rem 1rem !important;
+}

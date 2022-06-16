@@ -13,13 +13,16 @@ const initialValues = {
 const MovieDetail = () => {
   const { id } = useParams();
   const [movieDetails, setMovieDetails] = useState();
+  //BUTTONS STATE
   const [showComment, setShowComment] = useState(false);
   const [showShare, setShowShare] = useState(false);
+  //COMMENT AND SHARE STATE
   const [commentForm, setCommentForm] = useState(initialValues);
-  const [shareForm, setShareForm] = useState({ email: "" });
-  const { currentUser, commentData } = useContext(AuthContext);
   const [comment, setComment] = useState();
-
+  const [shareForm, setShareForm] = useState({ email: "" });
+  //CONTEXT
+  const { currentUser, commentData } = useContext(AuthContext);
+  //COMMENT DATA FİLTER
   const commentList = commentData?.filter((comment) => comment.movieId === id);
 
   // const API_KEY = process.env.REACT_APP_TMDB_KEY;
@@ -27,8 +30,7 @@ const MovieDetail = () => {
   // URLS
   const movieDetailBaseUrl = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`;
   const baseImageUrl = "https://image.tmdb.org/t/p/w1280";
-  const defaultImage =
-    "https://images.unsplash.com/photo-1581905764498-f1b60bae941a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80";
+  const defaultImage = "https://images.unsplash.com/photo-1581905764498-f1b60bae941a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80";
 
   useEffect(() => {
     axios
@@ -59,6 +61,8 @@ const MovieDetail = () => {
   const handleSubmitShare = (e) => {
     e.preventDefault();
     setShareForm({ ...shareForm, [e.target.email]: e.target.value });
+    alert(`Recommended to e-mail address.`);
+    e.target.reset();
   };
 
   return (
@@ -110,7 +114,6 @@ const MovieDetail = () => {
                 <input
                   type="email"
                   className="form-control"
-                  // value={shareForm.email}
                   id="exampleFormControlInput1"
                   name="email"
                   placeholder="example@example.com"
@@ -157,36 +160,26 @@ const MovieDetail = () => {
               </form>
             </div>
             {/* COMMENT ACCORDİON */}
-            <div className="accordion" id="accordionExample">
-              <div className="accordion-item">
-                <h2 className="accordion-header" id="headingOne">
-                  <button
-                    className="accordion-button"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#collapseOne"
-                    aria-expanded="true"
-                    aria-controls="collapseOne"
-                  >
-                    See Comments #1
-                  </button>
-                </h2>
-                <div
-                  id="collapseOne"
-                  className="accordion-collapse collapse show"
-                  aria-labelledby="headingOne"
-                  data-bs-parent="#accordionExample" >
-                  {commentList.map((comment) => (
-                    <div className="accordion-body">
-                      <strong>{comment.user}</strong>
-                      <br />
-                      {comment.comment}
-                    </div>
-                  ))}
+            <p>
+              <button
+                className="accordion-button"
+                type="button"
+                data-toggle="collapse"
+                data-target="#collapseExample"
+                aria-expanded="false"
+                aria-controls="collapseExample" >
+                <h5>Comments</h5>
+              </button>
+            </p>
+            <div className="collapse" id="collapseExample">
+              {commentList.map((comment, index) => (
+                <div key={index} className="card card-body">
+                  <strong>{comment.user}</strong>
+                  {comment.comment}
                 </div>
-              </div>
+              ))}
             </div>
-
+            {/* DATE, RATE, TOTAL VOTE İNFORMATİONS */}
             <ul className="list-group ">
               <li className="list-group-item">
                 {"Release Date : " + movieDetails?.release_date}
