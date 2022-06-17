@@ -15,7 +15,7 @@ import { useContext } from "react";
 import MovieList from "../pages/MovieList";
 
 const AppRouter = () => {
-  const { currentUser } = useContext(AuthContext);
+  const { currentUser }:any = useContext(AuthContext);
 
   function PrivateRouter() {
     if (!currentUser) {

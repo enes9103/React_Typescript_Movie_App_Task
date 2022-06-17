@@ -1,6 +1,7 @@
 ## About The Project
 Movie Application is an application where users can search and review the details of the movies they want by registering and logging in, add them to their favorites by commenting on the movies, and also share them with their loved ones.
 
+<!-- DESCRİPTİON -->
 ## Description
 - The Movie Application consists of 3 pages: "Home page (search)", "listing" and "movie detail".
 - With the Movie Application, users can register to the application with their e-mail addresses. You can also use the option to continue with the Google account with the Google Provider feature.
@@ -14,18 +15,28 @@ Movie Application is an application where users can search and review the detail
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+<!-- PROJECT OUTCOME -->
 ## Project Outcome
 ![Project gif](Animation.gif)
 
+<!-- PROJECT SKELETON -->
 ## Project Skeleton
 
 ```
 Movie App (folder)
 |
-|----readme.md
-SOLUTION
+├── cypress
+│    ├── downloads
+│    │     └── downloads.htm
+│    ├── e2e
+│    │     └── movie_app
+|    │            └── movie_app.cy.js
+|    ├── fixtures 
+|    │      └── example.json
+|    └── support
+|     
 ├── public
-│     └── index.html
+│    └── index.html
 ├── src
 │    ├── assets
 │    │     └── logo1.png
@@ -55,6 +66,7 @@ SOLUTION
 ├── package.json
 ├── package-lock-json
 ├── tsconfig.json
+├── README.md
 └──.env
 ```
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -110,12 +122,35 @@ Then create a new Realtime Database of the application. [https://firebase.google
     Runs the app in the development mode.\
     Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
+7. A test user has been created to log in. You can use `username : johndoe@test.com`, `password : johndoe`. Or you can create a new user Registration or log in with your google account.
+
     ### Don't  forget!!!
     You must log in to search for movies, view details and comment. You can also log in with your Google account.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+<!-- TESTİNG -->
+## Testing Procedures
+- 1 : Cypress open source test automation tool was used in the project testing processes.
 
+- 2 : After the ```sh npx cypress open ``` instruction is run on the terminal, `E2E Testing` should be selected and the test screen should be started by selecting the Crome browser.
+
+- 3 : The test should be started by selecting the `movie_app.cy.js` file in the `E2E specs` column in the Chrome window that opens.
+
+- 4 : The test procedures prepared for the film application are carried out sequentially. You can follow the testing process.
+    
+    ### Don't  forget!!!
+    During the test process, the code register test code block was left as a comment so that the register operations would not send a re-registration request for the same mail.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- PROJECT TESTİNG OUTCOME -->
+## Project Testing Outcome
+![Project gif](Test_Animation.gif)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- DEVELOPMENT PROCESS -->
 ## Project Development Process
 
 - 1 : `https://firebase.google.com/` was used for the `Authentication` and `data base operations` of the project.
@@ -156,6 +191,7 @@ Don't forget to give the project a star! Thanks again!
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+<!-- NOTES -->
 ## Notes
 
 - You can add additional functionalities to your app.

@@ -13,20 +13,20 @@ const SEARCH_API = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}
 const Main = () => {
   const [movies, setMovies] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const { currentUser } = useContext(AuthContext);
+  const { currentUser } : any = useContext(AuthContext);
 
   useEffect(() => {
     getMovies(FEATURED_API);
   }, []);
 
-  const getMovies = (API) => {
+  const getMovies = (API:any) => {
     axios
       .get(API)
       .then((res) => {setMovies(res.data.results)})
       .catch((err) => console.log(err));      
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e:any) => {
     e.preventDefault();
     // search if the user is logged in and the search term is not empty.
     if (searchTerm && currentUser) {
@@ -96,7 +96,7 @@ const Main = () => {
       {/* MOVIE CARDS */}
       <div className="d-flex justify-content-center flex-wrap">
         { movies.slice(1,5).map((movie) => (
-          <MovieCard key={movie.id} {...movie} />
+          <MovieCard key={movie.id} {...movie as any} />
         ))}
       </div>
       {/* MORE BUTTON */}
