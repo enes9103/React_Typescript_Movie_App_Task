@@ -32,7 +32,7 @@ Movie App (folder)
 │    │     └── movie_app
 |    │            └── movie_app.cy.js
 |    ├── fixtures 
-|    │      └── example.json
+|    │     └── example.json
 |    └── support
 |     
 ├── public
@@ -133,7 +133,7 @@ Then create a new Realtime Database of the application. [https://firebase.google
 ## Testing Procedures
 - 1 : Cypress open source test automation tool was used in the project testing processes.
 
-- 2 : After the ```sh npx cypress open ``` instruction is run on the terminal, `E2E Testing` should be selected and the test screen should be started by selecting the Crome browser.
+- 2 : After the ``` npx cypress open ``` instruction is run on the terminal, `E2E Testing` should be selected and the test screen should be started by selecting the Crome browser.
 
 - 3 : The test should be started by selecting the `movie_app.cy.js` file in the `E2E specs` column in the Chrome window that opens.
 
