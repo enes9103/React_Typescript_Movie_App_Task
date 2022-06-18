@@ -110,9 +110,10 @@ Then create a new Realtime Database of the application. [https://firebase.google
     messagingSenderId:ENTER YOUR FİREBASE MESSAGİNGSENDERID
     appId:ENTER YOUR FİREBASE APPID
    ```
-    ### Important reminder: It is designed to be used by preparing an .env file for the project. However, the .env structure has been left as a comment for convenience in the control situation.
+    ### Important Reminder!!!
+        It is designed to be used by preparing an .env file for the project. However, the .env structure has been left as a comment for convenience in the control situation.
 
-    ### Themoviedb.org and Firebase api keys and necessary information required for the project are temporarily in the project file.
+        Themoviedb.org and Firebase api keys and necessary information required for the project are temporarily in the project file.
 
 6. The project is ready, you can start using it now.
     You can run:
