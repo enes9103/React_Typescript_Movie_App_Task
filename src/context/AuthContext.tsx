@@ -2,7 +2,7 @@ import { createContext, useEffect, useState } from "react";
 import { userObserver } from "../helpers/AuthFirebase";
 import {useData} from "../helpers/DataBaseFirebase";
 
-export const AuthContext = createContext();
+export const AuthContext = createContext({});
 
 const AuthContextProvider = ({ children }:any) => {
   const [currentUser, setCurrentUser] = useState();

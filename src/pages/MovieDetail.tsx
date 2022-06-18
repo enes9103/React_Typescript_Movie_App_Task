@@ -1,8 +1,12 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { addNewBlog } from "../helpers/DataBaseFirebase";
+
+interface INav {
+  to: any;
+}
 
 const initialValues = {
   comment: "",
@@ -12,6 +16,7 @@ const initialValues = {
 
 const MovieDetail = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [movieDetails, setMovieDetails] = useState();
   //BUTTONS STATE
   const [showComment, setShowComment] = useState(false);
@@ -20,6 +25,7 @@ const MovieDetail = () => {
   const [commentForm, setCommentForm] = useState(initialValues);
   const [comment, setComment] = useState();
   const [shareForm, setShareForm] = useState({ email: "" });
+
   //CONTEXT
   const { currentUser, commentData }:any = useContext(AuthContext);
   //COMMENT DATA FİLTER
@@ -48,10 +54,10 @@ const MovieDetail = () => {
       comment: value,
       user: currentUser.displayName,
       movieId: id,
-    });
+    } as any);
   };
 
-  const handleSubmit = (e:any) => {
+  const handleSubmit = (e:React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     addNewBlog(commentForm);
     setCommentForm(initialValues);
@@ -67,14 +73,14 @@ const MovieDetail = () => {
 
   return (
     <div className="container py-5">
-      <h1 className="text-center">{movieDetails?.title}</h1>
+      <h1 className="text-center">{movieDetails?.['title']}</h1>
       <div className="card mb-3">
         <div className="row g-0">
           <div className="col-md-4">
             <img
               src={
-                movieDetails?.poster_path
-                  ? baseImageUrl + movieDetails?.poster_path
+                movieDetails?.['poster_path']
+                  ? baseImageUrl + movieDetails?.['poster_path']
                   : defaultImage
               }
               className="img-fluid rounded-start"
@@ -84,7 +90,7 @@ const MovieDetail = () => {
           <div className="col-md-8 d-flex flex-column ">
             <div className="card-body">
               <h5 className="card-title">Overview</h5>
-              <p className="card-text">{movieDetails?.overview}</p>
+              <p className="card-text">{movieDetails?.['overview']}</p>
               {/* FAVORY, ADVİCE, COMMENT BUTTONS */}
               <div>
                 <button className="btn btn-primary">
@@ -181,19 +187,17 @@ const MovieDetail = () => {
             {/* DATE, RATE, TOTAL VOTE İNFORMATİONS */}
             <ul className="list-group ">
               <li className="list-group-item">
-                {"Release Date : " + movieDetails?.release_date}
+                {"Release Date : " + movieDetails?.['release_date']}
               </li>
               <li className="list-group-item">
-                {"Rate : " + movieDetails?.vote_average}
+                {"Rate : " + movieDetails?.['vote_average']}
               </li>
               <li className="list-group-item">
-                {"Total Vote : " + movieDetails?.vote_count}
+                {"Total Vote : " + movieDetails?.['vote_count']}
               </li>
               <li className="list-group-item">
                 {/* Return link to the page we came from */}
-                <Link to={-1} className="card-link">
-                  Go Back
-                </Link>
+                <button className="btn btn-primary" onClick={() => navigate(-1)}><i className="bi bi-camera-reels"></i>   Go Back</button>
               </li>
             </ul>
           </div>

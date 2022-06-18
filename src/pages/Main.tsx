@@ -4,6 +4,10 @@ import { Link } from "react-router-dom";
 import MovieCard from "../components/MovieCard";
 import { AuthContext } from "../context/AuthContext";
 
+interface IId {
+  id: number;
+}
+
 const API_KEY = "eeed018179a4468a4d5a012819757c7d";
 // const API_KEY = process.env.REACT_APP_TMDB_KEY;
 
@@ -53,8 +57,7 @@ const Main = () => {
       </form>
       {/* SCROLL BAR */}
       <div className="scrollingText">
-        <marquee behavior="scroll" direction="left" style={{marginTop:"10px"}} >
-          <button className="button">MOVİES AT VISION</button>
+        <p className="moving-text"><button className="button">MOVİES AT VISION</button>
           <div className="load-item">
             <div className="line">
               <i className="box1"></i>
@@ -91,11 +94,23 @@ const Main = () => {
             <span className="price">JURASİC WORLD</span>
             <span className="add-offer">15 USD <small>+TAX</small></span>
           </div>
-        </marquee>
+          <div className="load-item">
+            <div className="line">
+              <i className="box1"></i>
+              <i className="box2"></i>
+              <i className="circle"></i>
+            </div>
+            <b className="departure">4.00 pm.</b>
+            <b className="arrival">5.15 pm.</b>
+            <div className="clearfix"></div>
+            <span className="price">A DAY TO DİE</span>
+            <span className="add-offer">15 USD <small>+TAX</small></span>
+          </div>
+          </p>
       </div>
       {/* MOVIE CARDS */}
       <div className="d-flex justify-content-center flex-wrap">
-        { movies.slice(1,5).map((movie) => (
+        { movies.slice(1,5).map((movie:IId) => (
           <MovieCard key={movie.id} {...movie as any} />
         ))}
       </div>

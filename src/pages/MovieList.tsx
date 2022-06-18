@@ -2,7 +2,7 @@ import MovieCard from '../components/MovieCard';
 import { useLocation } from 'react-router-dom';
 
 const MovieList = () => {
-const location = useLocation()
+const location:any = useLocation()
 
 const movies = location.state.movies.movies
   return (

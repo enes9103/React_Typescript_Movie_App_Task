@@ -91,6 +91,7 @@ body {
 
 .logo{
   width: 100px;
+  margin-right: 80px;
 }
 
 .form-image {
@@ -132,12 +133,24 @@ body {
   cursor: pointer;
 }
 
-/* SCROLLİNG BAR 135/258*/
-.scrollingText{
-  width: 85%;
-  margin: 0 auto;
+/* SCROLLİNG BAR STRUCTURE */
+
+.moving-text:hover{
+  animation-play-state: paused;
 }
 
+@keyframes marquee{
+  0%{transform: translateX(100%);}
+  100%{transform: translateX(-100%);}
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .moving-text{
+      animation: marquee 30s linear infinite;
+  }
+}
+
+/* SCROLLİNG BAR DATAS*/
 .button {
   display: inline-block;
   text-align: center;
