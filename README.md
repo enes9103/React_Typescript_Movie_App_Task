@@ -17,7 +17,7 @@ Movie Application is an application where users can search and review the detail
 
 <!-- PROJECT OUTCOME -->
 ## Project Outcome
-![Project gif](Animation.gif)
+![Project gif](Animation_App.gif)
 
 <!-- PROJECT SKELETON -->
 ## Project Skeleton
@@ -111,9 +111,11 @@ Then create a new Realtime Database of the application. [https://firebase.google
     appId:ENTER YOUR FİREBASE APPID
    ```
     ### Important Reminder!!!
-        It is designed to be used by preparing an .env file for the project. However, the .env structure has been left as a comment for convenience in the control situation.
+    It is designed to be used by preparing an .env file for the project.
+    However, the .env structure has been left as a comment for convenience in the control situation.
 
-        Themoviedb.org and Firebase api keys and necessary information required for the project are temporarily in the project file.
+    Themoviedb.org and Firebase api keys and necessary information required for the project are temporarily
+    in the project file.
 
 6. The project is ready, you can start using it now.
     You can run:
@@ -147,7 +149,7 @@ Then create a new Realtime Database of the application. [https://firebase.google
 
 <!-- PROJECT TESTİNG OUTCOME -->
 ## Project Testing Outcome
-![Project gif](Test_Animation.gif)
+![Project gif](Animation_Test.gif)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
