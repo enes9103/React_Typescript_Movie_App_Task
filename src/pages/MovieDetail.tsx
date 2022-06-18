@@ -1,12 +1,8 @@
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { addNewBlog } from "../helpers/DataBaseFirebase";
-
-interface INav {
-  to: any;
-}
 
 const initialValues = {
   comment: "",

@@ -1,5 +1,6 @@
 ## About The Project
 Movie Application is an application where users can search and review the details of the movies they want by registering and logging in, add them to their favorites by commenting on the movies, and also share them with their loved ones.
+DEMO: https://movieapptypescript.herokuapp.com/
 
 <!-- DESCRİPTİON -->
 ## Description
@@ -102,13 +103,13 @@ Then create a new Realtime Database of the application. [https://firebase.google
    ```
 5. Create .env file in home directory.
     ```sh
-    API_KEY=ENTER YOUR themoviedb.org APIKEY
-    apiKey:ENTER YOUR FİREBASE APIKEY
-    authDomain:ENTER YOUR FİREBASE AUTHDOMAIN
-    projectId:ENTER YOUR FİREBASE PROJECTID
-    storageBucket:ENTER YOUR FİREBASE STORAGEBUCKET
-    messagingSenderId:ENTER YOUR FİREBASE MESSAGİNGSENDERID
-    appId:ENTER YOUR FİREBASE APPID
+    REACT_APP_TMDB_KEY=ENTER YOUR themoviedb.org APIKEY
+    REACT_APP_apiKey:ENTER YOUR FİREBASE APIKEY
+    REACT_APP_authDomain:ENTER YOUR FİREBASE AUTHDOMAIN
+    REACT_APP_projectId:ENTER YOUR FİREBASE PROJECTID
+    REACT_APP_storageBucket:ENTER YOUR FİREBASE STORAGEBUCKET
+    REACT_APP_messagingSenderId:ENTER YOUR FİREBASE MESSAGİNGSENDERID
+    REACT_APP_appId:ENTER YOUR FİREBASE APPID
    ```
     ### Important Reminder!!!
     It is designed to be used by preparing an .env file for the project.
