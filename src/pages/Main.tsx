@@ -56,8 +56,8 @@ const Main = () => {
         <button type="submit">Search</button>
       </form>
       {/* SCROLL BAR */}
-      <div className="scrollingText">
-        <p className="moving-text"><button className="button">MOVİES AT VISION</button>
+      {/* <div className="scrollingText">
+        <div className="moving-text"><button className="button">MOVİES AT VISION</button>
           <div className="load-item">
             <div className="line">
               <i className="box1"></i>
@@ -106,8 +106,8 @@ const Main = () => {
             <span className="price">A DAY TO DİE</span>
             <span className="add-offer">15 USD <small>+TAX</small></span>
           </div>
-          </p>
-      </div>
+          </div>
+      </div> */}
       {/* MOVIE CARDS */}
       <div className="d-flex justify-content-center flex-wrap">
         { movies.slice(1,5).map((movie:IId) => (
