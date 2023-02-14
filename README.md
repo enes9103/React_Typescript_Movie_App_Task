@@ -1,6 +1,6 @@
 ## About The Project
 Movie Application is an application where users can search and review the details of the movies they want by registering and logging in, add them to their favorites by commenting on the movies, and also share them with their loved ones.
-DEMO: https://movieapptypescript.herokuapp.com/
+
 
 <!-- DESCRİPTİON -->
 ## Description
